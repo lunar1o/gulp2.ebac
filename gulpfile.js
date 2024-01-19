@@ -45,3 +45,17 @@ function tarefasImagem(){
 exports.styles = tarefasCSS
 exports.scripts = tarefasJS
 exports.images = tarefasImagem
+
+function end(cb){
+    console.log("tarefas concluídas")
+    return cb()
+}
+
+// series x parallel
+const process = parallel( tarefasHTML, tarefasJS, tarefasCSS, end)
+
+exports.styles = tarefasCSS
+exports.scripts = tarefasJS
+exports.images = tarefasImagem
+
+exports.default = process
